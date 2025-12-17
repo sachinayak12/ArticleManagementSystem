@@ -1,0 +1,12 @@
+package com.Article.Article.dto;
+
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+    public class AuthorDTO {
+    private Long authorId;
+    private String authorName;
+    private List<ArticleDTO> articles;
+}
