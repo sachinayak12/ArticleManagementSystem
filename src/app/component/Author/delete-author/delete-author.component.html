@@ -1,0 +1,30 @@
+<h2>Delete Author</h2>
+
+<form [formGroup]="deleteForm" (ngSubmit)="deleteAuthor()">
+
+  <label>Author ID:</label>
+  <input type="number" formControlName="authorId" />
+
+  
+  <small *ngIf="deleteForm.get('authorId')?.errors?.required && deleteForm.get('authorId')?.touched"
+         style="color:red;">
+    Author ID is required
+  </small>
+
+  
+  <small *ngIf="deleteForm.get('authorId')?.errors?.min && deleteForm.get('authorId')?.touched"
+         style="color:red;">
+    ID must be greater than 0
+  </small>
+
+  <button type="submit" [disabled]="deleteForm.invalid">Delete Author</button>
+</form>
+<p *ngIf="successMessage" style="color: green;">
+  {{ successMessage }}
+</p>
+
+<!-- Error Message -->
+<p *ngIf="errorMessage" style="color: red;">
+  {{ errorMessage }}
+</p>
+

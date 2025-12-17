@@ -1,0 +1,51 @@
+<h2>Create Article</h2>
+
+<form [formGroup]="articleForm" (ngSubmit)="submitArticle()">
+
+  <!-- Article Name -->
+  <div>
+    <label>Article Name:</label>
+    <input type="text" formControlName="articleName">
+
+    <small *ngIf="articleForm.get('articleName')?.touched && articleForm.get('articleName')?.hasError('required')" style="color:red;">
+      Name is required.
+    </small>
+
+    <small *ngIf="articleForm.get('articleName')?.touched && articleForm.get('articleName')?.hasError('minlength')" style="color:red;">
+      Minimum 3 characters required.
+    </small>
+  </div>
+
+  <!-- Article Description -->
+  <div>
+    <label>Article Description:</label>
+    <textarea rows="3" formControlName="articleDescription"></textarea>
+
+    <small *ngIf="articleForm.get('articleDescription')?.touched && articleForm.get('articleDescription')?.hasError('required')" style="color:red;">
+      Description is required.
+    </small>
+
+    <small *ngIf="articleForm.get('articleDescription')?.touched && articleForm.get('articleDescription')?.hasError('minlength')" style="color:red;">
+      Minimum 10 characters required.
+    </small>
+  </div>
+
+  <!-- Author ID -->
+  <div>
+    <label>Author ID:</label>
+    <input type="number" formControlName="authorId">
+
+    <small *ngIf="articleForm.get('authorId')?.touched && articleForm.get('authorId')?.hasError('required')" style="color:red;">
+      Author ID is required.
+    </small>
+
+    <small *ngIf="articleForm.get('authorId')?.touched && articleForm.get('authorId')?.hasError('min')" style="color:red;">
+      Enter a valid ID (ID must be >= 1).
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="articleForm.invalid">
+    Create Article
+  </button>
+
+</form>

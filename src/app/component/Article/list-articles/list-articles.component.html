@@ -1,0 +1,38 @@
+<h2>Get Articles</h2>
+
+<form [formGroup]="articlesForm" (ngSubmit)="loadArticles()">
+
+  <input type="number" placeholder="Enter Author ID" formControlName="authorId">
+
+  <!-- Required -->
+  <div *ngIf="articlesForm.get('authorId')?.errors?.required && articlesForm.get('authorId')?.touched" style="color:red">
+    Author ID is required
+  </div>
+
+  <!-- Min -->
+  <div *ngIf="articlesForm.get('authorId')?.errors?.min && articlesForm.get('authorId')?.touched" style="color:red">
+    Author ID must be >= 1
+  </div>
+
+  <button type="submit" [disabled]="articlesForm.invalid">Load Articles</button>
+</form>
+
+<!-- Error from API -->
+<div *ngIf="errorMessage" style="color:red">
+  {{ errorMessage }}
+</div>
+
+<!-- Article List -->
+<div *ngIf="articles.length > 0">
+  <h3>Articles:</h3>
+  <ul>
+    <li *ngFor="let art of articles">
+      <strong>{{ art.articleName }}</strong> - {{ art.articleDescription }}
+    </li>
+  </ul>
+</div>
+
+<!-- No result -->
+<div *ngIf="articles.length === 0 && !errorMessage">
+  No articles found.
+</div>

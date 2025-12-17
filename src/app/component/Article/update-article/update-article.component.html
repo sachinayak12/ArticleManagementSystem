@@ -1,0 +1,42 @@
+<h2>Update Article</h2>
+
+<form [formGroup]="updateForm" (ngSubmit)="updateArticle()">
+
+  <label>Author ID</label>
+  <input type="number" formControlName="authorId" />
+  <div class="error" *ngIf="f['authorId'].touched && f['authorId'].errors">
+    <small *ngIf="f['authorId'].errors['required']">Author ID is required</small>
+    <small *ngIf="f['authorId'].errors['min']">Author ID must be greater than 0</small>
+  </div>
+
+  <br><br>
+
+  <label>Article Name</label>
+  <input type="text" formControlName="articleName" />
+  <div class="error" *ngIf="f['articleName'].touched && f['articleName'].errors">
+    <small *ngIf="f['articleName'].errors['required']">Article name is required</small>
+    <small *ngIf="f['articleName'].errors['minlength']">
+      Minimum 3 characters
+    </small>
+  </div>
+
+  <br><br>
+
+  <label>Article Description</label>
+  <input type="text" formControlName="articleDescription" />
+  <div class="error" *ngIf="f['articleDescription'].touched && f['articleDescription'].errors">
+    <small *ngIf="f['articleDescription'].errors['required']">
+      Article description is required
+    </small>
+    <small *ngIf="f['articleDescription'].errors['minlength']">
+      Minimum 3 characters
+    </small>
+  </div>
+
+  <br><br>
+
+  <button type="submit" [disabled]="updateForm.invalid">
+    Update Article
+  </button>
+
+</form>

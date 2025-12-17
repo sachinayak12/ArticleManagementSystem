@@ -1,0 +1,28 @@
+<h2 class="title">Dashboard</h2>
+
+<div class="menu-container">
+  <!-- MAIN BUTTONS -->
+  <button class="main-btn" (click)="showAuthorMenu = !showAuthorMenu">
+    Author
+  </button>
+
+  <button class="main-btn" (click)="showArticleMenu = !showArticleMenu">
+    Article
+  </button>
+
+  <!-- AUTHOR SUB MENU -->
+  <div *ngIf="showAuthorMenu" class="submenu">
+    <button routerLink="/authors-list">Author List</button>
+    <button routerLink="/create-author">Create Author</button>
+    <button routerLink="/get-author">Get Author</button>
+    <button routerLink="/update-author">Update Author</button>
+    <button routerLink="/delete-author">Delete Author</button>
+  </div>
+
+  <!-- ARTICLE SUB MENU -->
+  <div *ngIf="showArticleMenu" class="submenu">
+    <button routerLink="/create-article">Create Article</button>
+    <button routerLink="/list-articles">List Articles</button>
+    <button routerLink="/update-article">Update Article</button>
+  </div>
+</div>

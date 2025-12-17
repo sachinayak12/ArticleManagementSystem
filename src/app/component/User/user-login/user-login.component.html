@@ -1,0 +1,50 @@
+<div class="page-container">
+
+  <div class="form-card">
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+
+      <!-- Email -->
+      <label>User Email:</label>
+      <input type="email" formControlName="userEmail">
+
+      <small class="error" *ngIf="
+        loginForm.get('userEmail')?.touched &&
+        loginForm.get('userEmail')?.invalid
+      ">
+        User email is required
+      </small>
+
+      <!-- Password -->
+      <label>Password:</label>
+      <input type="password" formControlName="password">
+
+      <small class="error" *ngIf="
+        loginForm.get('password')?.touched &&
+        loginForm.get('password')?.invalid
+      ">
+        Password is required (min 4 characters)
+      </small>
+
+      <!-- Buttons -->
+      <div class="button-container">
+        <button class="btn-primary" type="submit" [disabled]="loginForm.invalid">
+          Login
+        </button>
+
+        <button class="btn-secondary" routerLink="/signup-user">
+          Signup
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Success Message -->
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+
+    <!-- Error Message -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  </div>
+</div>

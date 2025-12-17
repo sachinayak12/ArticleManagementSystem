@@ -1,0 +1,58 @@
+<!-- <div class="container">
+
+  <h1>Article Management System</h1>
+
+  <div class="main-buttons">
+    <button (click)="showSection('author')" class="big-btn">Author</button>
+    <button (click)="showSection('article')" class="big-btn">Article</button>
+    <button routerLink="/user-login" class="big-btn">User</button>
+
+  </div>
+
+  <div *ngIf="activeSection === 'author'" class="section">
+    <button routerLink="/authors-list">Author List</button>
+    <button routerLink="/create-author">Create Author</button>
+    <button routerLink="/get-author">Get Author</button>
+    <button routerLink="/update-author">Update Author</button>
+    <button routerLink="/delete-author">Delete Author</button>
+  </div>
+
+  
+  <div *ngIf="activeSection === 'article'" class="section">
+    <button routerLink="/create-article">Create Article</button>
+    <button routerLink="/list-articles">List Articles</button>
+    <button routerLink="/update-article">Update Article</button>
+    <button routerLink="/delete-article">Delete Article</button>
+  </div>
+
+</div>
+<router-outlet></router-outlet> -->
+
+<header>
+  <div class="logo">Article Management System</div>
+
+  <nav>
+    <button routerLink="/articles-all">Articles</button>
+    <div class="dropdown">
+  <button class="big-btn">Author</button>
+
+  <div class="dropdown-content">
+    <!-- <button routerLink="/authors-list">Author List</button> -->
+    <button routerLink="/create-author">Create Author</button>
+    <!-- <button routerLink="/get-author">Get Author</button> -->
+    <button routerLink="/update-author">Update Author</button>
+    <button routerLink="/delete-author">Delete Author</button>
+  </div>
+</div>
+
+    <button routerLink="/user-signup">Signup</button>
+
+   
+
+  </nav>
+</header>
+
+<!-- Main Body -->
+<div class="home-body">
+  <router-outlet></router-outlet>
+</div>

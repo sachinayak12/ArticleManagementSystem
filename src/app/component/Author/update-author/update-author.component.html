@@ -1,0 +1,40 @@
+<h2>Update Author</h2>
+
+<label>Author ID:</label>
+<input type="number" [(ngModel)]="authorId" name="authorId" />
+
+<h3>Update Name</h3>
+<input
+  type="text"
+  placeholder="New Name"
+  [(ngModel)]="newName"
+  name="newName"
+/>
+<button (click)="updateName()">Update Name</button>
+<!-- Success Message -->
+<p *ngIf="NamesuccessMessage" style="color: green;">
+  {{ NamesuccessMessage }}
+</p>
+
+<!-- Error Message -->
+<p *ngIf="NameerrorMessage" style="color: red;">
+  {{ NameerrorMessage }}
+</p>
+
+<h3>Update Password</h3>
+<input
+  type="password"
+  placeholder="New Password"
+  [(ngModel)]="newPassword"
+  name="newPassword"
+/>
+<button (click)="updatePassword()">Update Password</button>
+<!-- Success Message -->
+<p *ngIf="PasswordsuccessMessage" style="color: green;">
+  {{ PasswordsuccessMessage }}
+</p>
+
+<!-- Error Message -->
+<p *ngIf="PassworderrorMessage" style="color: red;">
+  {{ PassworderrorMessage }}
+</p>

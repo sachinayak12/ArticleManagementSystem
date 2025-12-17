@@ -1,0 +1,41 @@
+<div class="page-container">
+
+  <div class="form-card">
+    <h2>Signup</h2>
+
+    <form [formGroup]="signup" (ngSubmit)="createUser()">
+
+      <!-- Author Name -->
+      <label>User Name:</label>
+      <input type="text" formControlName="userName">
+      <small *ngIf="signup.get('userName')?.touched && signup.get('userName')?.invalid" class="error">
+        User name is required (min 2 characters)
+      </small>
+
+      <!-- Email -->
+      <label>User Email:</label>
+      <input type="email" formControlName="userEmail">
+      <small *ngIf="signup.get('userEmail')?.touched && signup.get('userEmail')?.invalid" class="error">
+        Valid email is required
+      </small>
+
+      <!-- Password -->
+      <label>Password:</label>
+      <input type="password" formControlName="password">
+      <small *ngIf="signup.get('password')?.touched && signup.get('password')?.invalid" class="error">
+        Password is required (min 4 characters)
+      </small>
+
+      <div class="button-container">
+        <button type="submit" class="btn-primary" [disabled]="signup.invalid">Create User</button>
+        <button routerLink="/user-login" class="btn-secondary">Login</button>
+      </div>
+    </form>
+
+    <!-- Success -->
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+
+    <!-- Error -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </div>
+</div>

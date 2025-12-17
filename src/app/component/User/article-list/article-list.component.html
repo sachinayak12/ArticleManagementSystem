@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="row" *ngIf="articles">
+    
+    <div class="col-md-4" *ngFor="let art of articles">
+      <div class="card shadow mb-4">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ art.articleName }}</h5>
+          <p class="card-text">{{ art.articleDescription }}</p>
+
+          <p><strong>Author:</strong> {{ art.authorId }}</p>
+          <p><strong>Created:</strong> {{ art.created | date }}</p>
+
+          <button class="btn btn-primary btn-sm me-2"
+                  (click)="like(art.articleId)">
+            👍 Like
+          </button>
+
+          <button class="btn btn-secondary btn-sm"
+                  (click)="openComments(art)">
+            💬 Comment
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

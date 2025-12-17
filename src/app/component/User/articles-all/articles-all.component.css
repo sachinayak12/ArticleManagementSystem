@@ -1,0 +1,61 @@
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card h3 {
+  margin-bottom: 10px;
+  color: #0044cc;
+}
+
+.desc {
+  color: #555;
+  height: 60px;
+  overflow: hidden;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.like-btn, .read-btn, .login-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.like-btn {
+  background: #ff0066;
+}
+
+.read-btn {
+  background: #007bff;
+}
+
+.login-btn {
+  background: #444;
+}

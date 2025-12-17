@@ -1,0 +1,30 @@
+<h2>Get Author</h2>
+
+<label>Enter Author ID:</label>
+<input
+  type="number"
+  [(ngModel)]="authorId"
+  name="authorId"
+  required
+/>
+
+<button (click)="fetchAuthor()">Get Author</button>
+
+<hr />
+
+<!-- Show Author Details -->
+<div *ngIf="author">
+  <h3>{{ author.authorName }}</h3>
+
+  <h4>Articles:</h4>
+  <ul>
+    <li *ngFor="let article of author.articles">
+      {{ article.articleName }} - {{ article.articleDescription }}
+    </li>
+  </ul>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage">
+  <p style="color: red">{{ errorMessage }}</p>
+</div>

@@ -1,0 +1,22 @@
+<h2>Delete Article</h2>
+
+<form [formGroup]="deleteForm" (ngSubmit)="deleteArticle()">
+
+  <label>Article ID</label>
+  <input type="number" formControlName="articleId" />
+
+  
+
+  <button type="submit">Delete</button>
+</form>
+
+<p style="color: green">{{ message }}</p>
+
+<div *ngIf="articles.length > 0">
+  <h3>Updated Articles:</h3>
+  <ul>
+    <li *ngFor="let art of articles">
+      <b>{{ art.articleName }}</b> - {{ art.articleDescription }}
+    </li>
+  </ul>
+</div>

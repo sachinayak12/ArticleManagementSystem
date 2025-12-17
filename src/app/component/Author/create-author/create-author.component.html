@@ -1,0 +1,36 @@
+<h2>Create Author</h2>
+
+<form [formGroup]="authorForm" (ngSubmit)="createAuthor()">
+
+  <!-- Author Name -->
+  <label>Author Name:</label><br>
+  <input type="text" formControlName="authorName"><br>
+
+  <!-- Validation message -->
+  <small *ngIf="authorForm.get('authorName')?.touched && authorForm.get('authorName')?.invalid" style="color:red">
+    Author name is required (min 2 characters)
+  </small>
+  <br><br>
+
+  <!-- Password -->
+  <label>Password:</label><br>
+  <input type="password" formControlName="password"><br>
+
+  <!-- Validation message -->
+  <small *ngIf="authorForm.get('password')?.touched && authorForm.get('password')?.invalid" style="color:red">
+    Password is required (min 4 characters)
+  </small>
+  <br><br>
+
+  <button type="submit" [disabled]="authorForm.invalid">Create Author</button>
+</form>
+
+<!-- Success Message -->
+<p *ngIf="successMessage" style="color: green;">
+  {{ successMessage }}
+</p>
+
+<!-- Error Message -->
+<p *ngIf="errorMessage" style="color: red;">
+  {{ errorMessage }}
+</p>

@@ -1,0 +1,16 @@
+<h2>Authors List</h2>
+
+<div *ngIf="author.length === 0">
+  No authors found
+</div>
+
+<ul>
+  <li *ngFor="let author of author">
+    <b>{{ author.authorName }}</b>
+    <ul>
+      <li *ngFor="let article of author.articles">
+        {{ article.articleName }} - {{ article.articleDescription }}
+      </li>
+    </ul>
+  </li>
+</ul>
